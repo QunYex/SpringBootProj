@@ -1,8 +1,6 @@
 package com.imooc.sell.dataobject;
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +12,6 @@ import java.util.Date;
  * 2019-09-08
  */
 @Entity
-@DynamicUpdate
 @Data
 public class ProductCategory {
     @Id
@@ -25,6 +22,12 @@ public class ProductCategory {
 
     private Integer categoryType;
 
+    private Date createTime;
+
+    /** 更新时间. */
+    private Date updateTime;
+
+    public ProductCategory(){};
     public ProductCategory(String categoryName, Integer categoryType){
         this.categoryName = categoryName;
         this.categoryType = categoryType;
